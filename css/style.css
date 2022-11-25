@@ -1,0 +1,317 @@
+/* Fonts */
+
+@font-face {
+  font-family: "PT Sans";
+  src: url("../fonts/PTSans.woff2") format("woff2"),
+    url("../fonts/PTSans.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PT Sans";
+  src: url("../fonts/PTSans-Bold.woff2") format("woff2"),
+    url("../fonts/PTSans-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Variables */
+
+/*
+--basik-black: навигация, заголовки, футер, текст формы, текст сортировки, иконки форм наведение
+--basik-dark: параграфы
+--basik-white: sedona свг, фича 1 и 2, текст кнопок, иконки соц сетей, основной фон, цвет текста фильтров, фон кнопки фильтра при наведении
+--special-light: welcome, фичи-свг, фон фичи 1 и 2, фон иконок соц сетей, фон кнопки попапа, активная/наведение сортировка, шапка-наведение, гостиница-наведение, иконки форм нажатие, копирайт наведение
+--special-dark: кнопка поиска гостиницы, шапка выбранный
+--welcome-svg: to-the-gorgeous
+--filter-special: фильтр наведение
+*/
+
+:root {
+  --basik-black: #000000;
+  --basik-dark: #333333;
+  --basik-white: #FFFFFF;
+  --basik-white-rgb: rgba(255, 255, 255);
+  --special-light: #81B3D2;
+  --special-light-welcome: #81B3D3;
+  --special-dark: #766357;
+  --welcome-svg: #766458;
+  --form-icons: #A9A9A9;
+  --sorting-arrow: #CACACA;
+  --filter-special: #6A6A6A;
+  --button-light-hover: #669EC0;
+  --button-light-click: #5496BD;
+  --button-dark-hover: #604E43;
+  --button-dark-click: #503E33;
+  --form-background: #F2F2F2;
+  --form-hover-background: #EBEBEB;
+  --form-click-background: #E5E5E5;
+  --copyright-click: #BDBBBC;
+  --rating: #666666;
+  --advantages-background: #EEEEEE;
+}
+
+/* Global */
+
+.page-body {
+  min-width: 1200px;
+  margin: 0px;
+  padding: 0px;
+  font-family: "PT Sans", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: var(--basik-dark);
+  text-transform: uppercase;
+  background-color: var(--basik-white);
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Main navigation */
+
+.main-nav {
+  line-height: 26px;
+  color: var(--basik-black);
+  background-color: transparent;
+}
+
+.main-nav-list {
+  list-style: none;
+}
+
+.main-nav-item {
+  color: var(--basik-black);
+  font-weight: 700;
+}
+
+.main-nav-item:hover {
+  color: var(--special-light);
+}
+
+.main-nav-current {
+  color: var(--special-dark);
+}
+
+.main-nav-item:focus {
+  color: var(--basik-black);
+  opacity: 0.3;
+}
+
+.container {
+  text-align: center;
+}
+
+/* Welcome sections */
+
+.welcome-logo {
+  background-color: var(--basik-dark);
+  background-image: url(../img/main-background.jpg);
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+
+.welcome-text {
+  font-weight: 700;
+  color: var(--basik-black);
+  font-size: 21px;
+  line-height: 26px;
+}
+
+/* Advantages */
+
+.advantages-list {
+  list-style: none;
+  background-color: var(--advantages-background);
+}
+
+.living-recommends-list {
+  list-style: none;
+}
+
+.advantages-header {
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+.advantage-item-header, .recommend-item-header {
+  font-size: 21px;
+  line-height: 21px;
+  font-weight: 700;
+  color: var(--basik-black);
+}
+
+.advantage-special, .advantage-special .advantage-item-header {
+  background-color: var(--special-light);
+  color: var(--basik-white);
+}
+
+/* Housing search */
+
+.housing-search-intro {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--basik-black);
+}
+
+.housing-search p {
+  line-height: 24px;
+}
+
+.housing-search-suggestion {
+  font-size: 14px;
+  color: var(--basik-dark);
+}
+
+.housing-search img {
+  background-color: var(--special-dark);
+}
+
+/* Housing search form */
+
+.housing-search-form {
+  color: var(--basik-black);
+  line-height: 26px;
+  font-weight: 700;
+  background-color: var(--basik-white);
+  box-shadow: 0px 7px 15px;
+}
+
+.housing-search-form input {
+  background-color: var(--form-background);
+  border: none;
+  font-weight: 700;
+}
+
+.housing-search-form input:hover {
+  background-color: var(--form-hover-background);
+  border: none;
+}
+
+.housing-search-form input::placeholder {
+  font: inherit;
+  color: var(--basik-black);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.housing-search-form input:focus {
+  background-color: var(--basik-white);
+  border-color: var(--form-click-background);
+  border-width: 2px;
+  border-style: solid;
+  outline: none;
+}
+
+/* Footer */
+
+.main-footer {
+  opacity: 0.9;
+  color: var(--basik-black);
+  line-height: 26px;
+}
+
+.footer-contact-phone, .footer-hashtag {
+  color: inherit;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 26px;
+}
+
+.social-media-list {
+  list-style: none;
+}
+
+.social-media-item {
+  color: var(--basik-white);
+  background-color: var(--special-light);
+}
+
+.social-media-item:hover {
+  background-color: var(--button-light-hover);
+}
+
+.social-media-item:focus img, .social-media-item:focus span {
+  opacity: 0.3;
+}
+
+.footer-copyright:hover svg {
+  fill: var(--special-light);
+}
+
+.footer-copyright:focus svg {
+  fill: var(--copyright-click);
+}
+
+/* Button */
+
+.button {
+  font: inherit;
+  text-align: center;
+  color: var(--basik-white);
+  vertical-align: middle;
+  border: none;
+  text-transform: uppercase;
+}
+
+.housing-search-button {
+  background-color: var(--special-dark);
+  line-height: 26px;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.housing-search-button:hover {
+  background-color: var(--button-dark-hover);
+}
+
+.housing-search-button:focus {
+  background-color: var(--button-dark-click);
+}
+
+.housing-search-button:focus span {
+  opacity: 0.3;
+}
+
+.search-form-button {
+  background-color: var(--special-light);
+  font-size: 21px;
+}
+
+.search-form-button:hover {
+  background-color: var(--button-light-hover);
+}
+
+.search-form-button:focus {
+  background-color: var(--button-light-click);
+}
+
+.search-form-button:focus span {
+  opacity: 0.3;
+}
+
+.search-form-calendar-button, .search-form-plus-button, .search-form-minus-button {
+  background-color: transparent;
+}
+
+.search-form-calendar-button svg, .search-form-plus-button svg, .search-form-minus-button svg {
+  fill: var(--form-icons);
+}
+
+.search-form-calendar-button:hover svg, .search-form-plus-button:hover svg, .search-form-minus-button:hover svg {
+  fill: var(--basik-black);
+}
+
+.search-form-calendar-button:focus svg, .search-form-plus-button:focus svg, .search-form-minus-button:focus svg {
+  fill: var(--special-light);
+}
+
