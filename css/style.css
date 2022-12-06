@@ -49,9 +49,14 @@
   --copyright-click: #BDBBBC;
   --rating: #666666;
   --advantages-background: #EEEEEE;
+  --page-background: #888888;
+  --form-shadow: rgba(0, 1, 1, 0.15);
 }
 
 /* Global */
+.page {
+  height: 100%;
+}
 
 .page-body {
   min-width: 1200px;
@@ -63,7 +68,11 @@
   line-height: 21px;
   color: var(--basik-dark);
   text-transform: uppercase;
-  background-color: var(--basik-white);
+  background-color: var(--page-background);
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  align-content: start;
 }
 
 .visually-hidden {
@@ -79,17 +88,28 @@
   overflow: hidden;
 }
 
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+  background-color: var(--basik-white);
+}
+
 a {
   text-decoration: none;
 }
 
 img {
+  margin: 0px;
+  padding: 0px;
   max-width: 100%;
   height: auto;
 }
 
 .clear-list {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* Main navigation */
@@ -101,6 +121,7 @@ img {
 }
 
 .main-nav-item {
+  margin: 15px;
   color: var(--basik-black);
   font-weight: 700;
 }
@@ -129,6 +150,17 @@ img {
   background-image: url(../img/main-background.jpg);
   background-position: top center;
   background-repeat: no-repeat;
+  background-size: 1200 509;
+}
+
+.welcome-logo img:first-child {
+  margin-top: 75px;
+  margin-bottom: 10px;
+}
+
+.welcome-logo img:last-of-type {
+  margin-top: 50px;
+  margin-bottom: 68px;
 }
 
 .welcome-text {
@@ -141,6 +173,8 @@ img {
 /* Advantages */
 
 .advantages-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   background-color: var(--advantages-background);
 }
 
@@ -160,6 +194,42 @@ img {
 .advantage-special, .advantage-special .advantage-item-header {
   background-color: var(--special-light);
   color: var(--basik-white);
+}
+
+.advantage-special {
+  grid-column: 1 / -1;
+}
+
+.advantage-special-city {
+  display: grid;
+  grid-template-columns: 800px auto;
+  grid-template-rows: repeat(3, auto);
+}
+
+.advantage-special-city .advantage-item-pic {
+  grid-row: 1 / -1;
+}
+
+.living-recommends {
+  grid-column: 1 / -1;
+}
+
+.living-recommends-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: var(--basik-white);
+  color: var(--basik-dark);
+}
+
+.advantage-special-bridge {
+  display: grid;
+  grid-template-columns: auto 800px;
+  grid-template-rows: repeat(3, auto);
+}
+
+.advantage-special-bridge .advantage-item-pic {
+  grid-column: 2 / 3;
+  grid-row: 1 / -1;
 }
 
 /* Housing search */
@@ -190,7 +260,7 @@ img {
   line-height: 26px;
   font-weight: 700;
   background-color: var(--basik-white);
-  box-shadow: 0px 7px 15px;
+  box-shadow: 0px 7px 15px var(--form-shadow);
 }
 
 .housing-search-form input {
@@ -222,6 +292,10 @@ img {
 /* Footer */
 
 .main-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
   opacity: 0.9;
   color: var(--basik-black);
   line-height: 26px;
@@ -232,6 +306,11 @@ img {
   font-weight: 700;
   font-size: 21px;
   line-height: 26px;
+}
+
+.social-media-list li {
+  width: 46px;
+  height: 48px;
 }
 
 .social-media-item {
