@@ -106,6 +106,8 @@
 
 a {
   text-decoration: none;
+  margin: 0px;
+  padding: 0px;
 }
 
 img {
@@ -124,13 +126,29 @@ img {
 /* Main navigation */
 
 .main-nav {
+  display: grid;
+  grid-template-columns: 138px 1fr;
   line-height: 26px;
   color: var(--basik-black);
   background-color: transparent;
 }
 
-.main-nav-item {
+.main-nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.main-header-logo {
+  width: 138px;
+  height: 70px;
+}
+
+.main-nav-list li {
   margin: 15px;
+}
+
+.main-nav-item {
   color: var(--basik-black);
   font-weight: 700;
 }
@@ -156,6 +174,7 @@ img {
   background-position: top center;
   background-repeat: no-repeat;
   background-size: 1200 509;
+  margin-bottom: 42px;
 }
 
 .welcome-logo img:first-child {
@@ -173,9 +192,15 @@ img {
   color: var(--basik-black);
   font-size: 21px;
   line-height: 26px;
+  height: 80px;
+  margin-bottom: 16,5px;
 }
 
 /* Advantages */
+
+.advantages {
+  margin-bottom: 58px;
+}
 
 .advantages-list {
   display: grid;
@@ -184,17 +209,25 @@ img {
   background-color: var(--advantages-background);
 }
 
+.advantage-item {
+  order: 2;
+}
+
 .advantages-header {
   font-size: 14px;
   line-height: 26px;
   font-weight: 400;
+  margin-bottom: 51px;
 }
 
-.advantage-item-header, .recommend-item-header {
+.advantage-item-header {
   font-size: 21px;
   line-height: 21px;
   font-weight: 700;
   color: var(--basik-black);
+  margin-top: 47px;
+  margin-bottom: 25px;
+  padding: 0;
 }
 
 .advantage-special, .advantage-special .advantage-item-header {
@@ -207,17 +240,42 @@ img {
 }
 
 .advantage-special-city {
+  order: 0;
   display: grid;
+  grid-row: 1 / -1;
   grid-template-columns: 800px auto;
   grid-template-rows: repeat(3, auto);
 }
 
-.advantage-special-city .advantage-item-pic {
+.advantage-item-pic {
+  grid-row: 1 / -1;
+  width: 800px;
+  height: 256px;
+}
+
+.advantage-item-num {
+  margin: 0 0 23px 0;
+}
+
+.advantage-item-description {
+  margin: 0 0 54px 0;
+}
+
+.advantage-special-bridge {
+  display: grid;
+  grid-template-columns: auto 800px;
+  grid-template-rows: repeat(3, auto);
+  order: 2;
+}
+
+.advantage-special-bridge .advantage-item-pic {
+  grid-column: 2 / 3;
   grid-row: 1 / -1;
 }
 
 .living-recommends {
   grid-column: 1 / -1;
+  order: 1;
 }
 
 .living-recommends-list {
@@ -228,15 +286,16 @@ img {
   color: var(--basik-dark);
 }
 
-.advantage-special-bridge {
-  display: grid;
-  grid-template-columns: auto 800px;
-  grid-template-rows: repeat(3, auto);
+.recommend-item-header {
+  font-size: 21px;
+  line-height: 21px;
+  font-weight: 700;
+  color: var(--basik-black);
+  margin: 160px 0 25px 0;
 }
 
-.advantage-special-bridge .advantage-item-pic {
-  grid-column: 2 / 3;
-  grid-row: 1 / -1;
+.recommend-item-description {
+  margin: 0 0 82px 0;
 }
 
 /* Housing search */
@@ -245,6 +304,7 @@ img {
   font-size: 30px;
   font-weight: 700;
   color: var(--basik-black);
+  margin: 0 0 4px 0;
 }
 
 .housing-search p {
@@ -252,8 +312,10 @@ img {
 }
 
 .housing-search-suggestion {
+  height: 95px;
   font-size: 14px;
   color: var(--basik-dark);
+  margin-bottom: 0 0 24px 0;
 }
 
 .housing-search img {
@@ -315,18 +377,29 @@ img {
   line-height: 26px;
 }
 
-.social-media-list li {
-  width: 46px;
-  height: 48px;
+.social-media-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .social-media-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 48px;
+  margin: auto 3px;
   color: var(--basik-white);
   background-color: var(--special-light);
 }
 
 .social-media-item:hover {
   background-color: var(--button-light-hover);
+}
+
+.social-media-item:focus {
+  background-color: var(--button-light-click);
 }
 
 .social-media-item:focus img, .social-media-item:focus span {
@@ -542,6 +615,7 @@ img {
   line-height: 26px;
   font-size: 21px;
   font-weight: 700;
+  padding: 30px 124px;
 }
 
 .housing-search-button:hover {
