@@ -51,6 +51,7 @@
   --advantages-background: #EEEEEE;
   --page-background: #888888;
   --form-shadow: rgba(0, 1, 1, 0.15);
+  --plus-shadow: rgba(0, 0, 0, 0.25);
 }
 
 /* Global */
@@ -59,6 +60,7 @@
 }
 
 .page-body {
+  position: relative;
   min-width: 1200px;
   margin: 0px;
   padding: 0px;
@@ -123,29 +125,46 @@ img {
   padding: 0;
 }
 
+p, h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+
 /* Main navigation */
 
 .main-nav {
-  display: grid;
-  grid-template-columns: 138px 1fr;
+  position: relative;
   line-height: 26px;
   color: var(--basik-black);
   background-color: transparent;
+  margin: 0;
 }
 
 .main-nav-list {
   display: flex;
   flex-wrap: wrap;
   align-content: center;
+  margin: 0 72px 0 72px;
 }
 
 .main-header-logo {
+  position: absolute;
+  top: 0px;
+  left: 531px;
   width: 138px;
   height: 70px;
 }
 
 .main-nav-list li {
-  margin: 15px;
+  width: 264px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.main-nav-list li:nth-child(4n), .main-nav-list li:nth-child(4n-1) {
+  text-align: right;
 }
 
 .main-nav-item {
@@ -169,31 +188,35 @@ img {
 /* Welcome sections */
 
 .welcome-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: var(--basik-dark);
-  background-image: url(../img/main-background.jpg);
-  background-position: top center;
+  background-image: url(../img/main-background-mask.svg), url(../img/main-background.jpg);
+  background-position: bottom center, top center;
   background-repeat: no-repeat;
-  background-size: 1200 509;
+  background-size: 1200px 57px, 1200px 509px;
   margin-bottom: 42px;
 }
 
 .welcome-logo img:first-child {
-  margin-top: 75px;
+  margin-top: 77px;
   margin-bottom: 10px;
 }
 
-.welcome-logo img:last-of-type {
-  margin-top: 50px;
-  margin-bottom: 68px;
+.welcome-logo img:last-child {
+  margin-top: 53.2px;
+  margin-bottom: 80.7px;
 }
 
 .welcome-text {
+  list-style: none;
   font-weight: 700;
   color: var(--basik-black);
   font-size: 21px;
   line-height: 26px;
   height: 80px;
-  margin-bottom: 16,5px;
+  margin-bottom: 16.5px;
 }
 
 /* Advantages */
@@ -279,9 +302,9 @@ img {
 }
 
 .living-recommends-list {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 20px;
   background-color: var(--basik-white);
   color: var(--basik-dark);
 }
@@ -294,11 +317,51 @@ img {
   margin: 160px 0 25px 0;
 }
 
-.recommend-item-description {
-  margin: 0 0 82px 0;
+.living-recommends-item  {
+  padding: 0 30px 81px 30px;
+}
+
+.living-recommends-item-housing .recommend-item-header::before {
+  content: "";
+  position: absolute;
+  left: 162px;
+  top: 60px;
+  width: 75px;
+  height: 72px;
+  background-image: url(../img/icon-housing.svg);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.living-recommends-item-food .recommend-item-header::before {
+  content: "";
+  position: absolute;
+  left: 562px;
+  top: 61px;
+  width: 75px;
+  height: 70px;
+  background-image: url(../img/icon-burger.svg);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.living-recommends-item-souvenir .recommend-item-header::before {
+  content: "";
+  position: absolute;
+  right: 168px;
+  top: 55px;
+  width: 64px;
+  height: 77px;
+  background-image: url(../img/icon-souvenir.svg);
+  background-repeat: no-repeat;
+  background-position: 0 0;
 }
 
 /* Housing search */
+
+.housing-search {
+  position: relative;
+}
 
 .housing-search-intro {
   font-size: 30px;
@@ -312,10 +375,12 @@ img {
 }
 
 .housing-search-suggestion {
-  height: 95px;
+  height: 60px;
   font-size: 14px;
   color: var(--basik-dark);
-  margin-bottom: 0 0 24px 0;
+  margin-bottom: 24px;
+  padding-top: 35px;
+  text-align: center;
 }
 
 .housing-search img {
@@ -324,7 +389,12 @@ img {
 
 /* Housing search form */
 
-.housing-search-form {
+.housing-search-section {
+  position: absolute;
+  top: 233px;
+  left: 316px;
+  width: 568px;
+  height: 395px;
   color: var(--basik-black);
   line-height: 26px;
   font-weight: 700;
@@ -332,15 +402,28 @@ img {
   box-shadow: 0px 7px 15px var(--form-shadow);
 }
 
+.housing-search-form {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 55px;
+  font-family: inherit;
+}
+
+.housing-search-form-field {
+  position: relative;
+}
+
+.housing-search-form-field label {
+  text-align: start;
+}
+
 .housing-search-form input {
   background-color: var(--light-gray-background);
   border: none;
   font-weight: 700;
-}
-
-.housing-search-form input:hover {
-  background-color: var(--form-hover-background);
-  border: none;
+  height: 38px;
+  padding: 0;
 }
 
 .housing-search-form input::placeholder {
@@ -348,6 +431,89 @@ img {
   color: var(--basik-black);
   font-weight: 700;
   text-transform: uppercase;
+}
+
+/* Date choosing fields */
+
+.housing-search-arrival-date, .housing-search-departure-date {
+  display: grid;
+  grid-template-columns: 112px 346px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  align-items: baseline;
+}
+
+.search-form-calendar-button {
+  position: absolute;
+  top: 7px;
+  right: 9px;
+  width: 21px;
+  height: 23px;
+  padding: 0;
+}
+
+.housing-search-arrival-date input::placeholder, .housing-search-departure-date input::placeholder {
+  padding: 6px;
+  padding-left: 12px;
+}
+
+/* Number of people choosing fields */
+
+.housing-search-adults-count, .housing-search-childrens-count {
+  width: 229px;
+  display: grid;
+  grid-template-columns: 112px 114px;
+  justify-content: space-between;
+  margin-bottom: 54px;
+  align-items: baseline;
+}
+
+.housing-search-childrens-count label {
+  padding-left: 50px;
+}
+
+.housing-search-adults-count input::placeholder, .housing-search-childrens-count input::placeholder {
+  text-align: center;
+}
+
+.search-form-minus-button {
+  position: absolute;
+  top: 18px;
+  right: 88px;
+  width: 12px;
+  height: 3px;
+  padding: 0;
+}
+
+.search-form-minus-button svg {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 12px;
+  height: 3px;
+}
+
+.search-form-plus-button {
+  position: absolute;
+  top: 14px;
+  right: 13px;
+  width: 11px;
+  height: 11px;
+  padding: 0;
+  filter: none;
+}
+
+.search-form-plus-button svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 11px;
+  height: 11px;
+}
+
+.housing-search-form input:hover {
+  background-color: var(--form-hover-background);
+  border: none;
 }
 
 .housing-search-form input:focus {
@@ -358,9 +524,11 @@ img {
   outline: none;
 }
 
+
 /* Footer */
 
 .main-footer {
+  height: 120px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
@@ -368,6 +536,10 @@ img {
   opacity: 0.9;
   color: var(--basik-black);
   line-height: 26px;
+}
+
+.main-page-footer {
+  margin-top: -120px;
 }
 
 .footer-contact-phone, .footer-hashtag {
@@ -379,6 +551,7 @@ img {
 
 .social-media-list {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
@@ -389,9 +562,27 @@ img {
   justify-content: center;
   width: 46px;
   height: 48px;
-  margin: auto 3px;
+  margin: 3px;
   color: var(--basik-white);
   background-color: var(--special-light);
+}
+
+.social-media-twitter {
+  background-image: url("../img/Twitter.svg");
+  background-position: 16px 15px;
+  background-repeat: no-repeat;
+}
+
+.social-media-facebook {
+  background-image: url("../img/Facebook.svg");
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.social-media-youtube {
+  background-image: url("../img/Youtube.svg");
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
 }
 
 .social-media-item:hover {
@@ -404,6 +595,19 @@ img {
 
 .social-media-item:focus img, .social-media-item:focus span {
   opacity: 0.3;
+}
+
+.footer-copyright-section {
+  display: flex;
+  align-items: center;
+}
+
+.footer-copyright {
+  display: inline-block;
+  align-content: center;
+  width: 115px;
+  height: 33px;
+  margin: 43px 131px 44px 15px;
 }
 
 .footer-copyright:hover svg {
@@ -680,10 +884,12 @@ img {
   vertical-align: middle;
   border: none;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .housing-search-button {
   background-color: var(--special-dark);
+  width: 568px;
   line-height: 26px;
   font-size: 21px;
   font-weight: 700;
@@ -704,7 +910,9 @@ img {
 
 .search-form-button {
   background-color: var(--special-light);
+  width: 100%;
   font-size: 21px;
+  padding: 16px;
 }
 
 .search-form-button:hover {
@@ -729,6 +937,10 @@ img {
 
 .search-form-calendar-button:hover svg, .search-form-plus-button:hover svg, .search-form-minus-button:hover svg {
   fill: var(--basik-black);
+}
+
+.search-form-plus-button:hover svg {
+  filter: url(#filter0_d_2395_782);
 }
 
 .search-form-calendar-button:focus svg, .search-form-plus-button:focus svg, .search-form-minus-button:focus svg {
