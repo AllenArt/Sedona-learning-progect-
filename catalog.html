@@ -28,7 +28,7 @@
             <a class="main-nav-item" href="blank.html">Карта штата</a>
           </li>
           <li>
-            <a class="main-nav-item" href="catalog.html">Гостиницы</a>
+            <a class="main-nav-item current" href="catalog.html">Гостиницы</a>
           </li>
         </ul>
       </nav>
@@ -45,88 +45,92 @@
             <legend>Инфраструктура:</legend>
             <ul class="infrastructure-list clear-list">
               <li class="infrastructure-item">
-                <input type="checkbox" name="swimming-pool" id="filter-swimming-pool" checked>
+                <input class="visually-hidden filter-input-checkbox" type="checkbox" name="swimming-pool" id="filter-swimming-pool" checked>
                 <label for="filter-swimming-pool">Бассейн</label>
               </li>
               <li class="infrastructure-item">
-                <input type="checkbox" name="parking" id="filter-parking">
+                <input class="visually-hidden filter-input-checkbox" type="checkbox" name="parking" id="filter-parking">
                 <label for="filter-parking">Парковка</label>
               </li>
               <li class="infrastructure-item">
-                <input type="checkbox" name="wi-fi" id="filter-wi-fi">
+                <input class="visually-hidden filter-input-checkbox" type="checkbox" name="wi-fi" id="filter-wi-fi">
                 <label for="filter-wi-fi">Wi-Fi</label>
               </li>
             </ul>
           </fieldset>
+
           <fieldset class="housing-choice">
             <legend>Тип жилья:</legend>
             <ul class="housing-list clear-list">
               <li class="housing-item">
-                <input type="checkbox" name="hotel" id="filter-hotel" checked>
+                <input class="visually-hidden filter-input-checkbox" type="checkbox" name="hotel" id="filter-hotel" checked>
                 <label for="filter-hotel">Гостиница</label>
               </li>
               <li class="housing-item">
-                <input type="checkbox" name="motel" id="filter-motel" checked>
+                <input class="visually-hidden filter-input-checkbox" type="checkbox" name="motel" id="filter-motel" checked>
                 <label for="filter-motel">Мотель</label>
               </li>
               <li class="housing-item">
-                <input type="checkbox" name="apartments" id="filter-apartments" checked>
+                <input class="visually-hidden filter-input-checkbox" type="checkbox" name="apartments" id="filter-apartments" checked>
                 <label for="filter-apartments">Апартаменты</label>
               </li>
             </ul>
           </fieldset>
+
           <fieldset class="price-choice">
             <legend>Стоимость в сутки, ₽:</legend>
-            <div class="price-slider">
-              <div class="price-slider-button price-slider-button-left"></div>
-              <div class="price-slider-track"></div>
-              <div class="price-slider-button price-slider-button-right"></div>
-            </div>
-            <div class="price-wrapper">
-              <div class="price-input-wrapper">
-                <label for="price-from">от</label>
-                <input class="price-input price-from" type="text" name="price-from" id="price-from" value="0">
+            <div class="price-range-filters">
+              <div class="price-controls">
+                <label class="visually-hidden" for="min-price">Минимальная цена</label>
+                <input class="price-input min-price-input" type="text" name="min-price" id="min-price" placeholder="от 0">
+                <label class="visually-hidden" for="max-price">Максимальная цена</label>
+                <input class="price-input max-price-input" type="text" name="max-price" id="max-price" placeholder="До 3000">
               </div>
-              <div class="price-input-wrapper">
-                <label for="price-to">до</label>
-                <input class="price-input price-to" type="text" name="price-to" id="price-to" value="3000">
+            
+              <div class="price-range-controls">
+                <div class="price-range-scale">
+                  <div class="price-range-bar" style="width: 248px; margin-left: 14px"></div>
+                </div>
+                <div class="price-toggle price-toggle-min" tabindex="0" style="left: 6.4px"></div>
+                <div class="price-toggle price-toggle-max" tabindex="0" style="left: 252.5px"></div>
               </div>
             </div>
           </fieldset>
           <button class="button filter-button" type="submit">Показать</button>
         </form>
       </section>
-      <div class="catalog-container">
-        <section class="housing-page-margin">
-          <section class="sorting-wrapper">
-            <h2 class="visually-hidden">Результаты поиска</h2>
-            <p class="sorting-results">Найдено: 3</p>
-            <section class="sorting">
-              <h3 class="sorting-header">Сортировка</h3>
-              <ul class="sorting-list clear-list">
-                <li><a href="#" class="sorting-item current"><span>По цене</span></a></li>
-                <li><a href="#" class="sorting-item"><span>По типу</span></a></li>
-                <li><a href="#" class="sorting-item"><span>По рейтингу</span></a></li>
-                <li class="sorting-item-arrow-position">
-                  <a href="#" class="sorting-item-arrow arrow-up">
-                    <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5.5 0L0 10H11L5.5 0Z"/>
-                    </svg>
-                  </a>
-                  <a href="#" class="sorting-item-arrow arrow-down current">
-                    <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5.5 10L0 0H11"/>
-                    </svg>
-                  </a>
-                </li>
-              </ul>
-            </section>
-          </section>
 
-          <section class="searching-results">
-            <h3 class="visually-hidden">Результаты поиска</h3>
-            <ul class="searching-results-list clear-list">
-              <li class="searching-results-item suitable-item">
+      <section class="catalog-container">
+        <section class="housing-page-margin sorting-wrapper">
+          <h2 class="visually-hidden">Результаты поиска</h2>
+          <p class="sorting-results">Найдено: 3</p>
+          <section class="sorting">
+            <h3 class="sorting-header">Сортировка</h3>
+            <ul class="sorting-list clear-list">
+              <li><a href="#" class="sorting-item current"><span>По цене</span></a></li>
+              <li><a href="#" class="sorting-item"><span>По типу</span></a></li>
+              <li><a href="#" class="sorting-item"><span>По рейтингу</span></a></li>
+              <li class="sorting-item-arrow-position">
+                <a href="#" class="sorting-item-arrow arrow-up">
+                  <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.5 0L0 10H11L5.5 0Z"/>
+                  </svg>
+                </a>
+                <a href="#" class="sorting-item-arrow arrow-down current">
+                  <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.5 10L0 0H11"/>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section class="searching-results">
+          <h3 class="visually-hidden">Результаты поиска</h3>
+          <ul class="searching-results-list clear-list">
+            <li>
+              <div class="housing-page-margin searching-results-item suitable-item">
                 <img class="suitable-item-pic" src="img/Amara-Resort-Spa.jpg" width="135" height="90" alt="">
                 <h3><a href="#" class="suitable-item-header">Amara Resort & Spa</a></h3>
                 <div class="rating">
@@ -148,8 +152,10 @@
                 <button class="suitable-item-detailes button" type="button"><span>Подробнее</span></button>
                 <button class="suitable-item-book button" type="button"><span>Забронировать</span></button>
                 <p class="suitable-item-rating">Рейтинг: 8,5</p>
-              </li>
-              <li class="searching-results-item suitable-item">
+              </div>
+            </li>
+            <li>
+              <div class="housing-page-margin searching-results-item suitable-item">
                 <img class="suitable-item-pic" src="img/Desert-Quail-Inn.png" width="135" height="90" alt="">
                 <h3><a href="#" class="suitable-item-header"><span>Desert Quail Inn</span></a></h3>
                 <div class="rating">
@@ -168,8 +174,10 @@
                 <button class="suitable-item-detailes button" type="button"><span>Подробнее</span></button>
                 <button class="suitable-item-book button" type="button"><span>Забронировать</span></button>
                 <p class="suitable-item-rating">Рейтинг: 8,9</p>
-              </li>
-              <li class="searching-results-item suitable-item">
+              </div>
+            </li>
+            <li>
+              <div class="housing-page-margin searching-results-item suitable-item">
                 <img class="suitable-item-pic" src="img/Villas-at-Poco-Diablo.jpg" width="135" height="90" alt="">
                 <h3><a href="#" class="suitable-item-header"><span>Villas at Poco Diablo</span></a></h3>
                 <div class="rating">
@@ -185,11 +193,12 @@
                 <button class="suitable-item-detailes button" type="button"><span>Подробнее</span></button>
                 <button class="suitable-item-book button" type="button"><span>Забронировать</span></button>
                 <p class="suitable-item-rating">Рейтинг: 9,2</p>
-              </li>
-            </ul>
-          </section>
+              </div>
+            </li>
+          </ul>
         </section>
-      </div>
+      </section>
+    </section>
     </main>
 
     <footer class="main-footer catalog-container">

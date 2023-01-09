@@ -50,8 +50,10 @@
   --rating: #666666;
   --advantages-background: #EEEEEE;
   --page-background: #888888;
+  --toggle-grey: #ABABAB;
   --form-shadow: rgba(0, 1, 1, 0.15);
   --plus-shadow: rgba(0, 0, 0, 0.25);
+  --range-scale: rgba(255, 255, 255, 0.3);
 }
 
 /* Global */
@@ -156,14 +158,23 @@ p, h1, h2, h3 {
 }
 
 .main-nav-list li {
-  width: 264px;
+  width: 227px;
   margin-top: 15px;
   margin-bottom: 15px;
   flex-grow: 1;
   text-align: left;
 }
 
-.main-nav-list li:nth-child(4n), .main-nav-list li:nth-child(4n-1) {
+.main-nav-list li:nth-child(4n-2) {
+  margin-right: 64px;
+}
+
+.main-nav-list li:nth-child(4n-1) {
+  margin-left: 64px;
+  text-align: right;
+}
+
+.main-nav-list li:nth-child(4n) {
   text-align: right;
 }
 
@@ -645,7 +656,7 @@ p, h1, h2, h3 {
   max-height: 160px;
   grid-template-columns: 1fr 1fr 2fr;
   grid-template-rows: 1fr 1fr;
-  column-gap: 20px;
+  column-gap: 70px;
   padding: 26px 73px 31px 72px;
   margin: 0;
 }
@@ -661,11 +672,6 @@ p, h1, h2, h3 {
   padding: 0;
   margin: 0;
   text-align: start;
-}
-
-.filters li {
-  margin-bottom: 25px;
-  margin-right: 25px;;
 }
 
 .filters li:last-child {
@@ -684,6 +690,66 @@ p, h1, h2, h3 {
   flex-wrap: wrap;
 }
 
+.infrastructure-item, .housing-item {
+  margin-bottom: 25px;
+  margin-right: 25px;
+  padding-left: 40px;
+}
+
+.infrastructure-item label, .housing-item label {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+.filter-input-checkbox + label::before {
+  content:"";
+  position: absolute;
+  top: 0px;
+  left: -40px;
+  width: 23px;
+  height: 23px;
+  background-image: url("../img/checkbox-off.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.filter-input-checkbox:checked + label::before {
+  content:"";
+  position: absolute;
+  top: 0px;
+  left: -40px;
+  width: 27px;
+  height: 23px;
+  background-image: url("../img/checkbox-on.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.filter-input-checkbox:checked:disabled + label::before {
+  content:"";
+  position: absolute;
+  top: 0px;
+  left: -40px;
+  width: 23px;
+  height: 23px;
+  background-image: url("../img/checkbox-on-disabled.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.filter-input-checkbox:disabled + label::before {
+  content:"";
+  position: absolute;
+  top: 0px;
+  left: -40px;
+  width: 23px;
+  height: 23px;
+  background-image: url("../img/checkbox-off-disabled.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
 .housing-choice{
   grid-row: 1 / -1;
 }
@@ -694,10 +760,78 @@ p, h1, h2, h3 {
   grid-row: 1 / 2;
 }
 
+.price-controls {
+  position: relative;
+  display: flex;
+  width: 313px;
+  margin-bottom: 20px;
+  border: 2px solid var(--basik-white);
+}
+
+.price-controls::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 155.5px;
+  width: 2px;
+  height: 22px;
+  background-color: var(--basik-white);
+}
+
 .price-input {
+  height: 32px;
   background-color: transparent;
   color: var(--basik-white);
-  border: 2px solid var(--basik-white);
+  padding: 0px;
+  border: none;
+}
+
+.price-input::placeholder {
+  font-family: inherit;
+  text-transform: uppercase;
+  color: var(--basik-white);
+  line-height: 21px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.price-input:focus {
+  border: none;
+  outline: none;
+}
+
+.price-range-controls {
+  position: relative;
+}
+
+.price-range-scale {
+  width: 316px;
+  height: 2px;
+  background-color: var(--range-scale);
+}
+
+.price-range-bar {
+  height: 2px;
+  background-color: var(--basik-white);
+}
+
+.price-toggle {
+  position: absolute;
+  top: -9.5px;
+  width: 3.8px;
+  height: 3.8px;
+  padding: 0;
+  background-color: var(--toggle-grey);
+  border: 7.6px solid var(--basik-white);
+  border-radius: 50%;
+  box-shadow: 0 2px 1px 0 var(--toggle-grey);
+  cursor: pointer;
+}
+
+.price-toggle:hover {
+  width: 4.6px;
+  height: 4.36px;
+  border: 9.2px solid var(--basik-white);
 }
 
 /* Sorting */
@@ -727,6 +861,7 @@ p, h1, h2, h3 {
   line-height: 18px;
   color: var(--basik-black);
   margin-right: 40px;
+  padding-bottom: 6px;
 }
 
 .sorting-list {
@@ -734,7 +869,6 @@ p, h1, h2, h3 {
   flex-wrap: wrap;
   flex-grow: 1;
 }
-
 
 .sorting-item-arrow-position {
   margin-left: auto;
@@ -749,7 +883,8 @@ p, h1, h2, h3 {
   line-height: 18px;
   color: var(--basik-black);
   border-bottom: 1px dashed var(--special-light);
-  margin: 16px;
+  margin: auto 16px;
+  padding-bottom: 4px;
 }
 
 .sorting-item:hover span {
@@ -790,8 +925,15 @@ p, h1, h2, h3 {
 
 /* Housing search results */
 
-.searching-results-item {
+.searching-results-list li {
   border-top: 1px solid var(--form-click-background);
+}
+
+.searching-results-list li:last-child {
+  border-bottom: 1px solid var(--form-click-background);
+}
+
+.searching-results-item {
   display: grid;
   column-gap: 30px;
   grid-template-columns: 135px max-content max-content auto;
@@ -803,14 +945,12 @@ p, h1, h2, h3 {
   margin: auto 0;
 }
 
-.searching-results-item:last-child {
-  border-bottom: 1px solid var(--form-click-background);
-}
-
 .searching-results-item h3 {
   grid-column: 2 / 4;
   justify-self: start;
   text-align: start;
+  margin-top: 23.5px;
+  margin-bottom: 7px;
 }
 
 .searching-results-item p {
@@ -825,8 +965,6 @@ p, h1, h2, h3 {
   font-size: 21px;
   line-height: 26px;
   margin: 0;
-  margin-top: 23,5px;
-  margin-bottom: 7px;
   padding: 0;
 }
 
@@ -845,6 +983,7 @@ p, h1, h2, h3 {
   flex-wrap: wrap;  
   align-items: baseline;
   justify-self: end;
+  margin-top: 24px;
 }
 
 .rating-star {
@@ -857,7 +996,7 @@ p, h1, h2, h3 {
   background-size: contain;
   margin-right: 5px;
   margin-bottom: 0;
-  margin-top: 24px;
+  
 }
 
 .rating-star:last-child {
@@ -870,7 +1009,6 @@ p, h1, h2, h3 {
   grid-column: 4 / 5;
   justify-self: end;
   padding: 3px 12px 3px 15px;
-  height: 27px;
   align-self: end;
   margin-bottom: 30px;
 }
@@ -953,7 +1091,7 @@ p, h1, h2, h3 {
   justify-self: end;
   grid-column: -1 / -2;
   padding: 7px 35px 8px 36px; 
-  margin: 33px 95px 33px 95px;
+  margin: 33px 95px 32px auto;
 }
 
 .filter-button:hover {
