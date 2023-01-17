@@ -16,18 +16,6 @@
   font-style: normal;
 }
 
-/* Variables */
-
-/*
---basik-black: навигация, заголовки, футер, текст формы, текст сортировки, иконки форм наведение
---basik-dark: параграфы
---basik-white: sedona свг, фича 1 и 2, текст кнопок, иконки соц сетей, основной фон, цвет текста фильтров, фон кнопки фильтра при наведении
---special-light: welcome, фичи-свг, фон фичи 1 и 2, фон иконок соц сетей, фон кнопки попапа, активная/наведение сортировка, шапка-наведение, гостиница-наведение, иконки форм нажатие, копирайт наведение
---special-dark: кнопка поиска гостиницы, шапка выбранный
---welcome-svg: to-the-gorgeous
---filter-special: фильтр наведение
-*/
-
 :root {
   --basik-black: #000000;
   --basik-dark: #333333;
@@ -166,11 +154,11 @@ p, h1, h2, h3 {
 }
 
 .main-nav-list li:nth-child(4n-2) {
-  margin-right: 64px;
+  margin-right: 72px;
 }
 
 .main-nav-list li:nth-child(4n-1) {
-  margin-left: 64px;
+  margin-left: 72px;
   text-align: right;
 }
 
@@ -226,7 +214,7 @@ p, h1, h2, h3 {
   color: var(--basik-black);
   font-size: 21px;
   line-height: 26px;
-  height: 80px;
+  padding-bottom: 28px;
   margin-bottom: 16.5px;
 }
 
@@ -239,7 +227,6 @@ p, h1, h2, h3 {
 .advantages-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 20px;
   background-color: var(--advantages-background);
 }
 
@@ -259,7 +246,7 @@ p, h1, h2, h3 {
   line-height: 21px;
   font-weight: 700;
   color: var(--basik-black);
-  margin-top: 47px;
+  margin-top: 46px;
   margin-bottom: 25px;
   padding: 0;
 }
@@ -277,14 +264,21 @@ p, h1, h2, h3 {
   order: 0;
   display: grid;
   grid-row: 1 / -1;
-  grid-template-columns: 800px auto;
+  grid-template-columns: 400px 800px;
   grid-template-rows: repeat(3, auto);
+}
+
+
+.advantage-special-city .advantage-item-pic {
+  grid-column: 2 / 3;
+  grid-row: 1 / -1;
 }
 
 .advantage-item-pic {
   grid-row: 1 / -1;
   width: 800px;
   height: 256px;
+  object-fit: contain;
 }
 
 .advantage-item-num {
@@ -292,19 +286,15 @@ p, h1, h2, h3 {
 }
 
 .advantage-item-description {
-  margin: 0 0 54px 0;
+  margin: 0 45px 56px 45px;
+  padding: 0px;
 }
 
 .advantage-special-bridge {
   display: grid;
-  grid-template-columns: auto 800px;
+  grid-template-columns: 800px 400px;
   grid-template-rows: repeat(3, auto);
   order: 2;
-}
-
-.advantage-special-bridge .advantage-item-pic {
-  grid-column: 2 / 3;
-  grid-row: 1 / -1;
 }
 
 .living-recommends {
@@ -329,7 +319,7 @@ p, h1, h2, h3 {
 }
 
 .living-recommends-item  {
-  padding: 0 30px 81px 30px;
+  padding: 0 30px 82px 30px;
 }
 
 .living-recommends-item-housing .recommend-item-header::before {
@@ -370,15 +360,12 @@ p, h1, h2, h3 {
 
 /* Housing search */
 
-.housing-search {
-  position: relative;
-}
-
 .housing-search-intro {
   font-size: 30px;
   font-weight: 700;
   color: var(--basik-black);
   margin: 0 0 4px 0;
+  padding: 0;
 }
 
 .housing-search p {
@@ -389,8 +376,9 @@ p, h1, h2, h3 {
   height: 60px;
   font-size: 14px;
   color: var(--basik-dark);
-  margin-bottom: 24px;
-  padding-top: 35px;
+  margin-bottom: 25px;
+  padding-top: 30px;
+  padding-bottom: 5px;
   text-align: center;
 }
 
@@ -401,23 +389,32 @@ p, h1, h2, h3 {
 /* Housing search form */
 
 .housing-search-section {
-  position: absolute;
-  top: 233px;
-  left: 316px;
-  width: 568px;
-  height: 395px;
+  position: relative;
   color: var(--basik-black);
   line-height: 26px;
   font-weight: 700;
-  background-color: var(--basik-white);
-  box-shadow: 0px 7px 15px var(--form-shadow);
+  width: 1199px;
+  height: 594px;
+  background-image: url("../img/map.png");
+}
+
+.housing-search-section iframe {
+  border: none;
+  outline: none;
 }
 
 .housing-search-form {
+  position: absolute;
+  top: 0;
+  left: 316px;
+  width: 458px;
+  min-height: 285px;
+  background-color: var(--basik-white);
+  box-shadow: 0px 7px 15px var(--form-shadow);
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 55px;
+  padding: 55px;
   font-family: inherit;
 }
 
@@ -475,8 +472,12 @@ p, h1, h2, h3 {
   display: grid;
   grid-template-columns: 112px 114px;
   justify-content: space-between;
-  margin-bottom: 54px;
+  margin-bottom: 30px;
   align-items: baseline;
+}
+
+.housing-search-adults-count input, .housing-search-childrens-count input {
+  text-align: center;
 }
 
 .housing-search-childrens-count label {
@@ -529,10 +530,8 @@ p, h1, h2, h3 {
 
 .housing-search-form input:focus {
   background-color: var(--basik-white);
-  border-color: var(--form-click-background);
-  border-width: 2px;
-  border-style: solid;
-  outline: none;
+  border: none;
+  outline: 2px solid var(--form-click-background);
 }
 
 
@@ -553,11 +552,18 @@ p, h1, h2, h3 {
   margin-top: -120px;
 }
 
+.footer-contacts-section {
+  padding-left: 65px;
+  margin-top: 22px;
+  align-self: start;
+}
+
 .footer-contact-phone, .footer-hashtag {
   color: inherit;
   font-weight: 700;
   font-size: 21px;
   line-height: 26px;
+  margin-bottom: 9px;
 }
 
 .social-media-list {
@@ -611,6 +617,7 @@ p, h1, h2, h3 {
 .footer-copyright-section {
   display: flex;
   align-items: center;
+  padding-left: 65px;
 }
 
 .footer-copyright {
@@ -632,7 +639,7 @@ p, h1, h2, h3 {
 /* Страница каталога */
 
 .housing-page-margin {
-  margin: 0 72px;
+  margin: 0 73px;
 }
 
 /*  Форма поиска */
@@ -654,10 +661,10 @@ p, h1, h2, h3 {
 .filters-form {
   display: grid;
   max-height: 160px;
-  grid-template-columns: 1fr 1fr 2fr;
+  grid-template-columns: minmax(min-content, auto) minmax(min-content, 1fr) auto;
   grid-template-rows: 1fr 1fr;
-  column-gap: 70px;
   padding: 26px 73px 31px 72px;
+  column-gap: 20px;
   margin: 0;
 }
 
@@ -665,6 +672,7 @@ p, h1, h2, h3 {
   font-weight: 700;
   font-size: 16px;
   margin-bottom: 24px;
+  margin-right: 100px;
 }
 
 .filters fieldset {
@@ -678,7 +686,7 @@ p, h1, h2, h3 {
   margin-bottom: 0;
 }
 
-.infrastructure-choice {
+.infrastructure-choice, .housing-choice {
   grid-row: 1 / -1;
   display: flex;
 }
@@ -736,6 +744,7 @@ p, h1, h2, h3 {
   background-image: url("../img/checkbox-on-disabled.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
+  cursor: auto;
 }
 
 .filter-input-checkbox:disabled + label::before {
@@ -748,16 +757,18 @@ p, h1, h2, h3 {
   background-image: url("../img/checkbox-off-disabled.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
-}
-
-.housing-choice{
-  grid-row: 1 / -1;
+  cursor: auto;
 }
 
 .price-choice {
   display: flex;
   justify-self: end;
   grid-row: 1 / 2;
+  margin-left: 10px;
+}
+
+.price-choice legend {
+  margin-bottom: 10.5px;
 }
 
 .price-controls {
@@ -883,8 +894,7 @@ p, h1, h2, h3 {
   line-height: 18px;
   color: var(--basik-black);
   border-bottom: 1px dashed var(--special-light);
-  margin: auto 16px;
-  padding-bottom: 4px;
+  margin-right: 32px;
 }
 
 .sorting-item:hover span {
@@ -910,9 +920,14 @@ p, h1, h2, h3 {
   border: none;
 }
 
+.sorting-item-arrow {
+  padding-left: 12px;
+}
+
 .sorting-item-arrow svg {
   fill: var(--sorting-arrow);
-  padding: 6px;
+  width: 11px;
+  height: 10px;
 }
 
 .sorting-item-arrow:hover svg {
@@ -935,14 +950,18 @@ p, h1, h2, h3 {
 
 .searching-results-item {
   display: grid;
-  column-gap: 30px;
-  grid-template-columns: 135px max-content max-content auto;
+  column-gap: 6px;
+  grid-template-columns: 159px min-content auto 1fr;
   grid-template-rows: repeat(4, auto);
 }
 
 .suitable-item-pic {
+  width: 135px;
+  height: 90px;
   grid-row: 1 / -1;
   margin: auto 0;
+  margin-right: 29px;
+  object-fit: contain;
 }
 
 .searching-results-item h3 {
@@ -983,7 +1002,7 @@ p, h1, h2, h3 {
   flex-wrap: wrap;  
   align-items: baseline;
   justify-self: end;
-  margin-top: 24px;
+  margin-top: 29px;
 }
 
 .rating-star {
@@ -996,7 +1015,6 @@ p, h1, h2, h3 {
   background-size: contain;
   margin-right: 5px;
   margin-bottom: 0;
-  
 }
 
 .rating-star:last-child {
@@ -1031,7 +1049,7 @@ p, h1, h2, h3 {
   line-height: 26px;
   font-size: 21px;
   font-weight: 700;
-  padding: 30px 124px;
+  padding: 30px 0;
 }
 
 .housing-search-button:hover {
@@ -1051,6 +1069,7 @@ p, h1, h2, h3 {
   width: 100%;
   font-size: 21px;
   padding: 16px;
+  margin-top: 23px;
 }
 
 .search-form-button:hover {
@@ -1090,8 +1109,8 @@ p, h1, h2, h3 {
   border: 2px solid var(--basik-white);
   justify-self: end;
   grid-column: -1 / -2;
-  padding: 7px 35px 8px 36px; 
-  margin: 33px 95px 32px auto;
+  padding: 5px 33px 6px 34px; 
+  margin: 33px auto;
 }
 
 .filter-button:hover {
@@ -1129,6 +1148,7 @@ p, h1, h2, h3 {
   padding: 3px 17px 3px 16px;
   margin-bottom: 30px;
   margin-top: 15.5px;
+  justify-self: start;
 }
 
 .suitable-item-book:hover {
@@ -1141,4 +1161,23 @@ p, h1, h2, h3 {
 
 .suitable-item-book:focus span {
   opacity: 0.3;
+}
+
+/* Blank page */
+
+.blank-page-main {
+  width: 1200px;
+  height: 509px;
+  background-image: url(../img/main-background-mask.svg), url(../img/main-background.jpg);
+  background-position: bottom center, top center;
+  background-repeat: no-repeat;
+}
+
+.blank-page-main h2 {
+  margin: 0;
+  padding: 0;
+  padding-top: 100px;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 26px;
 }
