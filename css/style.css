@@ -760,6 +760,12 @@ p, h1, h2, h3 {
   cursor: auto;
 }
 
+.filter-input-checkbox:focus-visible + label::before,
+.filter-input-checkbox:checked:focus-visible + label::before {
+  outline: 3px solid var(--basik-white);
+}
+
+
 .price-choice {
   display: flex;
   justify-self: end;
@@ -839,7 +845,7 @@ p, h1, h2, h3 {
   cursor: pointer;
 }
 
-.price-toggle:hover {
+.price-toggle:hover, .price-toggle:focus {
   width: 4.6px;
   height: 4.36px;
   border: 9.2px solid var(--basik-white);
@@ -1113,7 +1119,7 @@ p, h1, h2, h3 {
   margin: 33px auto;
 }
 
-.filter-button:hover {
+.filter-button:hover, .filter-button:focus {
   background-color: var(--basik-white);
   color: var(--basik-black);
 }
