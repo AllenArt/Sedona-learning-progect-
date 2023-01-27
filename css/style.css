@@ -396,6 +396,7 @@ p, h1, h2, h3 {
   width: 1199px;
   height: 594px;
   background-image: url("../img/map.png");
+  overflow: hidden;
 }
 
 .housing-search-section iframe {
@@ -416,6 +417,9 @@ p, h1, h2, h3 {
   flex-wrap: wrap;
   padding: 55px;
   font-family: inherit;
+  animation-name: slide;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
 }
 
 .housing-search-form-field {
@@ -432,6 +436,9 @@ p, h1, h2, h3 {
   font-weight: 700;
   height: 38px;
   padding: 0;
+  text-transform: uppercase;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 .housing-search-form input::placeholder {
@@ -439,6 +446,14 @@ p, h1, h2, h3 {
   color: var(--basik-black);
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.housing-search-form-opening {
+  animation-name: slide-down;
+} 
+
+.housing-search-form-closed {
+  display: none;
 }
 
 /* Date choosing fields */
@@ -460,11 +475,6 @@ p, h1, h2, h3 {
   padding: 0;
 }
 
-.housing-search-arrival-date input::placeholder, .housing-search-departure-date input::placeholder {
-  padding: 6px;
-  padding-left: 12px;
-}
-
 /* Number of people choosing fields */
 
 .housing-search-adults-count, .housing-search-childrens-count {
@@ -478,6 +488,8 @@ p, h1, h2, h3 {
 
 .housing-search-adults-count input, .housing-search-childrens-count input {
   text-align: center;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .housing-search-childrens-count label {
@@ -533,7 +545,6 @@ p, h1, h2, h3 {
   border: none;
   outline: 2px solid var(--form-click-background);
 }
-
 
 /* Footer */
 
@@ -1186,4 +1197,24 @@ p, h1, h2, h3 {
   font-weight: 700;
   font-size: 21px;
   line-height: 26px;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-395px);
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-395px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
